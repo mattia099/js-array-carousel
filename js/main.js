@@ -23,11 +23,16 @@ const text = [
 ]
 
 const sliderWrapper = document.querySelector('.slider-wrapper');
-
+const sliderList = document.querySelector('.slider-list');
 let slide;
-let currentIndex=0;
+let element;
+let currentIndex = 0;
+const next = document.querySelector('.next');
+const prev = document.querySelector('.prev')
+
 //ciclo che mi crea div slide con immagine e testo dentro
 for(i=0; i<items.length; i++){
+    //slider-wrapper
     slide = document.createElement('div');
     slide.classList.add('slide');
     const img = `<img src="${items[i]}">`;
@@ -38,13 +43,48 @@ for(i=0; i<items.length; i++){
     
     slide.innerHTML = img + slideText;
     sliderWrapper.append(slide);
+    
+    //slider-list
+    element = document.createElement('div');
+    element.classList.add('element');
+    element.innerHTML = img;
+    sliderList.append(element);
+    
 
+    
+    
 }
-//vettore di tutti gli elementi che hanno la classe slide
-let slideVett = [...document.getElementsByClassName("slide")];
 
-//aggingo classe active che mi rende visibile una slide
+//vettori di tutti gli elementi che hanno la classe slide ed element
+let slideVett = [...document.getElementsByClassName("slide")];
+let elementVett = [...document.getElementsByClassName("element")];
+
+//aggingo classe active che mi rende visibile una slide e un element
 slideVett[currentIndex].classList.add('active');
+elementVett[currentIndex].classList.add('active');
+
+
+//Click per scorrere foto
+next.addEventListener('click', function(){
+    if(currentIndex > 0){
+        slideVett[currentIndex].classList.remove('active');
+        elementVett[currentIndex].classList.remove('active'); 
+        currentIndex--;
+        slideVett[currentIndex].classList.add('active');
+        elementVett[currentIndex].classList.add('active');    
+    }
+})
+
+prev.addEventListener('click', function(){
+
+    if(currentIndex < items.length - 1){
+        slideVett[currentIndex].classList.remove('active');
+        elementVett[currentIndex].classList.remove('active'); 
+        currentIndex++;
+        slideVett[currentIndex].classList.add('active');
+        elementVett[currentIndex].classList.add('active');
+    }
+})
 
 
 console.log(sliderWrapper);
