@@ -23,6 +23,7 @@ section{
     align-items: center;
     height: 50vh;
     width: 60vw;
+    user-select: none;
 }
 
 .slider-wrapper{
@@ -86,6 +87,7 @@ section{
     font-size: 30px;
     z-index: 2;
     cursor:pointer;
+    user-select: none;
 }
 
 .prev{
@@ -96,6 +98,7 @@ section{
     font-size: 30px;
     z-index: 2;
     cursor:pointer;
+    user-select: none;
 }
 
 

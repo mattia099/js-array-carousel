@@ -66,27 +66,38 @@ elementVett[currentIndex].classList.add('active');
 
 //Click per scorrere foto
 next.addEventListener('click', function(){
-    if(currentIndex > 0){
+    if(currentIndex == 0){
+        slideVett[currentIndex].classList.remove('active');
+        elementVett[currentIndex].classList.remove('active');
+        currentIndex = items.length-1;
+        slideVett[currentIndex].classList.add('active');
+        elementVett[currentIndex].classList.add('active');  
+    }
+    else{
         slideVett[currentIndex].classList.remove('active');
         elementVett[currentIndex].classList.remove('active'); 
         currentIndex--;
         slideVett[currentIndex].classList.add('active');
         elementVett[currentIndex].classList.add('active');    
     }
+
 })
 
 prev.addEventListener('click', function(){
 
-    if(currentIndex < items.length - 1){
+    if(currentIndex == items.length-1){
+        slideVett[currentIndex].classList.remove('active');
+        elementVett[currentIndex].classList.remove('active'); 
+        currentIndex = 0;
+        slideVett[currentIndex].classList.add('active');
+        elementVett[currentIndex].classList.add('active');
+    }
         slideVett[currentIndex].classList.remove('active');
         elementVett[currentIndex].classList.remove('active'); 
         currentIndex++;
         slideVett[currentIndex].classList.add('active');
         elementVett[currentIndex].classList.add('active');
-    }
+    
 })
-
-
-console.log(sliderWrapper);
 
 
