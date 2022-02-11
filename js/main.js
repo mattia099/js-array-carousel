@@ -85,19 +85,19 @@ next.addEventListener('click', function(){
 
 prev.addEventListener('click', function(){
 
-    if(currentIndex == items.length-1){
-        slideVett[currentIndex].classList.remove('active');
-        elementVett[currentIndex].classList.remove('active'); 
-        currentIndex = 0;
-        slideVett[currentIndex].classList.add('active');
-        elementVett[currentIndex].classList.add('active');
-    }
+    if(currentIndex < (items.length-1)){
         slideVett[currentIndex].classList.remove('active');
         elementVett[currentIndex].classList.remove('active'); 
         currentIndex++;
         slideVett[currentIndex].classList.add('active');
         elementVett[currentIndex].classList.add('active');
-    
+    } else{
+        slideVett[currentIndex].classList.remove('active');
+        elementVett[currentIndex].classList.remove('active'); 
+        currentIndex=0;
+        slideVett[currentIndex].classList.add('active');
+        elementVett[currentIndex].classList.add('active');
+    }
 })
 
 
